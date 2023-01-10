@@ -2,9 +2,32 @@
     <head>
         <title>Adsense</title>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2230605983205824" crossorigin="anonymous"></script>
+
+        <script>
+            var isShow = true;
+
+            window.onload = function() {
+                displayAd();
+            };
+
+            function displayAd(){
+                var advertisementTxt = document.getElementById("adSense");
+                var advertisement = document.getElementById("squareAd");
+                
+                if (!isShow) {
+                    advertisementTxt.style.display = "block";
+                    advertisement.style.display = "block";
+                } else {
+                    advertisementTxt.style.display = "none";
+                    advertisement.style.display = "none";
+                }
+
+                isShow = !isShow;
+            }
+        </script>
     </head>
     <body>
-        <h1>My Google Adsense test webpage v4</h1>
+        <h1>My Google Adsense test webpage v5</h1>
 
         <!-- Square Display -->
         <ins class="adsbygoogle"
@@ -12,9 +35,14 @@
             data-ad-client="ca-pub-2230605983205824"
             data-ad-slot="5506579179"
             data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
+            data-full-width-responsive="true"
+            id="squareAd"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+
+        <div id="adSense"><p>Advertisement</p></div>
+
+        <button onclick="displayAd()">Click me</button>
     </body>
 </html>
